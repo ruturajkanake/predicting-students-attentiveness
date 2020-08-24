@@ -1,0 +1,31 @@
+.webcam-video {
+    width: 430px;
+    height: 200px;
+    display: inline-block;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px black;
+}
+
+.webcam-video video{
+    width: 100%;
+}
+
+.btn {
+    width: 250px;
+    font-size: 15px;
+    margin-top: 0;
+    margin-left: 10px;
+    display: block;
+    background-color: rgb(216, 29, 67);
+    border: 1px rgb(0, 0, 0);
+    border-radius: 3px;
+    box-shadow: 1px 1px 2px black;
+    color: #ffffff;
+    padding: 5px;
+    position: fixed;
+}
+
+.btn:hover {
+    background-color: rgb(179, 26, 57);
+    cursor: pointer;
+}
