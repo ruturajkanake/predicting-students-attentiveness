@@ -1,23 +1,25 @@
 const express = require('express');
-const auth = require('../middleware/teacher');
+const teacherAuth = require('../middleware/teacher');
+const studentAuth = require('../middleware/student');
 const Subject = require('../models/subject');
 const router = new express.Router();
 
-router.post('/create', auth, async(req, res) => {
+router.post('/create', teacherAuth, async(req, res) => {
+
     const subject = new Subject({
         ...req.body,
         teacherId: req.teacher._id
     });
     try{
         await subject.save();
-        await subject.populate('students');
         res.send(subject);
     }catch (error) {
         res.status(500).send(error);
     }
 });
 
-router.post('/add/:subjectId', auth, async(req, res) => {
+router.post('/add/:subjectId', teacherAuth, async(req, res) => {
+
     try{
         const subject = await Subject.findOne({_id: req.params.subjectId, teacherId: req.teacher._id});
         if(!subject){
@@ -33,4 +35,30 @@ router.post('/add/:subjectId', auth, async(req, res) => {
     } catch(error) {
         res.status(400).send(error);
     }
+});
+
+router.get('/teacher', teacherAuth, async(req, res) => {
+
+    try {
+        const subjects = await Subject.find({teacherId: req.teacher._id});
+        for(const subject of subjects) {
+            await subject.populate('students', '-tokens -password').execPopulate();
+        }
+        res.send(subjects);
+    } catch (error){
+        res.status(400).send(error);
+    }
 })
+
+router.get('/student', studentAuth, async(req, res) => {
+
+    try{
+        const subjects = await Subject.find({students: req.student._id});
+        if(!subjects) throw 'No Subjects Present';
+        res.send(subjects);
+    }catch(error){
+        res.status(400).send(error);
+    }
+})
+
+module.exports = router;

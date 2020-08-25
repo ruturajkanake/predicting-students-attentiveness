@@ -13,7 +13,8 @@ const lectureSchema = new mongoose.Schema({
     videoId: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
+        unique: true
     },
     subjectId: {
         type: mongoose.Schema.Types.ObjectId,

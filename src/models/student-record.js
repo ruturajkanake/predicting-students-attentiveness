@@ -6,6 +6,11 @@ const studentRecordSchema = new mongoose.Schema({
         required: true,
         ref: 'Student'
     },
+    subjectId: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'Subject'
+    },
     lectureId: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
