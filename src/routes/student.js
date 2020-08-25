@@ -28,6 +28,14 @@ router.post('/login', async(req, res) => {
     }
 })
 
+router.get('/me', auth, async(req, res) => {
+    try{
+        res.send(req.student);
+    }catch(e){
+        res.status(400).send(e);
+    }
+})
+
 router.post('/logout', auth, async (req, res) => {
     try {
         req.student.tokens = req.student.tokens.filter((token) => {

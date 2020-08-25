@@ -18,6 +18,14 @@ router.post('/register', async(req, res) => {
     }
 })
 
+router.get('/me', auth, async(req, res) => {
+    try{
+        res.send(req.teacher);
+    }catch(e){
+        res.status(400).send(e);
+    }
+})
+
 router.post('/login', async(req, res) => {
     try {
         const teacher = await Teacher.findByCredentials(req.body.username, req.body.password);
