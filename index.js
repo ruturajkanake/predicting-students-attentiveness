@@ -8,6 +8,7 @@ const studentRouter = require('./src/routes/student');
 const teacherRouter = require('./src/routes/teacher');
 const subjectRouter = require('./src/routes/subject');
 const lectureRouter = require('./src/routes/lecture');
+const recordsRouter = require('./src/routes/records');
 
 const app = express();
 const port = process.env.PORT || 5000 ;
@@ -22,6 +23,7 @@ app.use('/student', studentRouter);
 app.use('/teacher', teacherRouter);
 app.use('/subject', subjectRouter);
 app.use('/lecture', lectureRouter);
+app.use('/records', recordsRouter);
 
 app.listen(port, () => {
     console.log(`Express server started at port: ${port}.` );
