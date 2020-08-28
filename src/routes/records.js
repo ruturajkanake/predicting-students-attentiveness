@@ -4,13 +4,14 @@ const studentAuth = require('../middleware/student');
 const teacherAuth = require('../middleware/teacher');
 const router = new express.Router();
 
-router.post('/create/:id', studentAuth, async(req, res) => {
+router.post('/create/:lectureId/:subjectId', studentAuth, async(req, res) => {
     try{
-        const isPresent = await Record.findOne({lectureId: req.params.id, studentId: req.student._id});
+        const isPresent = await Record.findOne({lectureId: req.params.lectureId, studentId: req.student._id});
         if(isPresent) throw 'Already Present';
         const record = new Record({
-            lectureId: req.params.id, 
+            lectureId: req.params.lectureId, 
             studentId: req.student._id,
+            subjectId: req.params.subjectId,
             recordX: req.body.xData,
             recordY: req.body.yData
         });

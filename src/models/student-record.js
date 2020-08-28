@@ -11,6 +11,11 @@ const studentRecordSchema = new mongoose.Schema({
         required: true,
         ref: 'Lecture'
     },
+    subjectId: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'Subject'
+    },
     recordX: {
         type: Array,
         required: true

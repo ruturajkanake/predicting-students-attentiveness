@@ -12,7 +12,8 @@ router.post('/create', teacherAuth, async(req, res) => {
     });
     try{
         await subject.save();
-        res.send(subject);
+        const subjects = await Subject.find({teacherId: req.teacher._id});
+        res.send(subjects);
     }catch (error) {
         res.status(500).send(error);
     }
@@ -55,6 +56,9 @@ router.get('/student', studentAuth, async(req, res) => {
     try{
         const subjects = await Subject.find({students: req.student._id});
         if(!subjects) throw 'No Subjects Present';
+        for(const subject of subjects){
+            await subject.populate('teacherId', 'name').execPopulate();
+        }
         res.send(subjects);
     }catch(error){
         res.status(400).send(error);
