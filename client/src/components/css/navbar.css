@@ -1,0 +1,22 @@
+.navbar {
+    margin-top: 7px;
+    float: right;
+}
+
+.nav {
+    display: inline;
+}
+
+.links {
+    padding: 5px;
+    font-size: 80%;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-left: 30px;
+    color: black;
+    transition: border-bottom 0.3s;
+}
+
+.links:hover {
+    border-bottom: 2px solid blue;
+}

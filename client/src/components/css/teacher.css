@@ -1,0 +1,33 @@
+.main-body {
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.box-left, .box-right {
+    padding: 20px;
+    background-color: #ffffff;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+
+.box-left {
+    width: 570px;
+    float: left;
+}
+
+.box-right {
+    width: 320px;
+    float: right;
+}
+
+.form-subject {
+    margin-left: 12px;
+    margin-top: 17px;
+}
+
+.form-subject [type=text] {
+    width: 240px;
+    border-color: 1px solid #d2d2d2;
+    border-radius: 5px;
+}

@@ -1,0 +1,104 @@
+html, body {
+    background-color: rgb(230, 230, 230);
+}
+
+.login {
+    margin-top: 50px;
+    border: 1px solid black;
+    width: 420px;
+    height: 620px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+.login h2 {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.login img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 270px;
+    height: 180px;
+}
+
+form {
+    margin-left: 78px;
+}
+
+label, .label-login{
+    padding: 10px 0px 10px 0;
+    font-size: 80%;
+}
+
+.radio-button {
+    float: left;
+    width: 75px;
+    border-radius: 5px;
+    border: 1px solid rgb(147, 147, 147);
+    margin: 0 49px
+}
+
+.radio-button.student {
+    margin-left: 0px;
+}
+
+.radio-button img {
+    margin-top: 5px;
+    height: 40px;
+    width: 40px;
+}
+
+.radio-button p {
+    font-size: 90%;
+    text-align: center;
+}
+
+[type=text], [type=password] {
+    font-size: 65%;
+    width: 250px;
+    height: 27px;
+    padding: 3px;
+    padding-left: 7px;
+    margin: 7px 0 10px 0;
+    border: 1px solid rgb(213, 213, 213);
+    border-radius: 2px;
+}
+
+[type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+[type=radio] + div {
+    cursor: pointer;
+}
+
+[type=radio]:checked + div {
+    border: 3px solid rgb(86, 62, 171);
+}
+
+[type=submit] {
+    width: 120px;
+    font-size: 15px;
+    margin-left: 130px;
+    margin-top: 40px;
+    display: block;
+    background-color: rgb(39, 44, 181);
+    border: 1px rgb(0, 0, 0);
+    border-radius: 3px;
+    box-shadow: 1px 1px 2px black;
+    color: #ffffff;
+    padding: 5px;
+}
+
+[type=submit]:hover {
+    background-color: rgb(32, 35, 121);
+    cursor: pointer;
+}

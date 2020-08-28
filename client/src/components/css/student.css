@@ -1,0 +1,48 @@
+.heading {
+    margin-top: 50px;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+}
+
+h2 {
+    font-size: 130%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.subjects {
+    padding: 30px;
+    background-color: #ffffff;
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+
+.inline {
+    padding: 3px;
+    border-bottom: 2px solid #ffffff;
+    display: inline-block;
+    transition: border-bottom 0.3s;
+}
+
+li, .no-list {
+    margin: 30px 30px;
+}
+
+.subject {
+    cursor: pointer;
+}
+
+.subject:hover {
+    border-bottom: 2px solid blue;
+}
+
+.teacher {
+    float: right;
+}

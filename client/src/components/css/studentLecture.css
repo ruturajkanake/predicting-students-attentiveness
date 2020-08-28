@@ -1,0 +1,28 @@
+.student-lecture {
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+}
+
+.complete, .incomplete {
+    padding: 30px;
+    background-color: #ffffff;
+    border: 3px solid black;
+    border-radius: 7px;
+}
+
+.incomplete{
+    margin-bottom: 20px;
+}
+
+.lecture {
+    cursor: pointer;
+    padding: 3px;
+    border-bottom: 2px solid #ffffff;
+    display: inline-block;
+    transition: border-bottom 0.3s;
+}
+
+.lecture:hover {
+    border-bottom: 2px solid blue;
+}
