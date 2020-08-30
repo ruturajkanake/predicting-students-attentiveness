@@ -96,7 +96,9 @@ class WebcamCapture extends React.Component{
 			pathname: '/report',
 			state: { 
 				x: this.state.completeXArray,
-				y: this.state.completeYArray
+				y: this.state.completeYArray,
+				subjectId: this.props.subjectId,
+				lectureId: this.props.lectureId
 			}
 		})
 	}

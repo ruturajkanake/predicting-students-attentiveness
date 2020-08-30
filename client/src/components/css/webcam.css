@@ -1,6 +1,7 @@
 .webcam-video {
+    background-color: black;
     width: 430px;
-    height: 200px;
+    height: 323px;
     display: inline-block;
     border-radius: 5px;
     box-shadow: 1px 1px 2px black;
@@ -22,7 +23,6 @@
     box-shadow: 1px 1px 2px black;
     color: #ffffff;
     padding: 5px;
-    position: fixed;
 }
 
 .btn:hover {

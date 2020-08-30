@@ -1,8 +1,8 @@
 import React from 'react';
 import Navbar from './navbar';
 import axios from 'axios';
+import Modal from 'react-modal';
 import './css/studentLecture.css';
-import './css/student.css';
 
 class StudentSubject extends React.Component {
     constructor(props){
@@ -10,14 +10,17 @@ class StudentSubject extends React.Component {
         this.state = {
             name: '',
             completed: [],
-            incomplete: []
+            incomplete: [],
+            isActive: false
         }
 
         this.completePage = this.completePage.bind(this);
         this.incompletePage = this.incompletePage.bind(this);
+        this.modalClose = this.modalClose.bind(this);
     }
 
     componentDidMount() {
+        Modal.setAppElement('body');
         const id = this.props.match.params.id;
         const token = localStorage.authToken;
         const name = localStorage.name
@@ -36,6 +39,12 @@ class StudentSubject extends React.Component {
         })
     }
 
+    modalClose() {
+        this.setState({
+            isActive: false
+        })
+    }
+
     completePage(id){
         const path=`/student-record/${id}`;
         this.props.history.push({
@@ -44,12 +53,23 @@ class StudentSubject extends React.Component {
     }
 
     incompletePage(id){
+        const subjectId = this.props.match.params.id;
+        const lectureId = id;
+        const currLecture = this.state.incomplete.find(lecture => lecture._id===id);
+        this.setState({isActive: true});
         navigator.mediaDevices.getUserMedia({
             video: true, 
             audio: false
         }).then((obj) =>{
-            console.log(obj);
-        })
+            this.props.history.push({
+                pathname: '/live-classroom',
+                state: {
+                    subjectId,
+                    lectureId,
+                    videoId: currLecture.videoId
+                }
+            });
+        }).catch(err=>console.log('ERROR: ',err));
     }
 
     render(){
@@ -58,6 +78,9 @@ class StudentSubject extends React.Component {
                 <div className='heading'>
                     <Navbar user='student' name={this.state.name}></Navbar>
                 </div>
+                <Modal isOpen={this.state.isActive} onRequestClose={this.modalClose} className='modal-view'>
+                    <div className='modal-text'>Allow camera access to the website</div>
+                </Modal>
                 <div className='student-lecture'>
                     <div className='incomplete'>
                         <h3>Incomplete Lectures</h3>
