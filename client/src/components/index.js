@@ -3,7 +3,9 @@ import Login from './login';
 import Teacher from './teacher';
 import Student from './student';
 import StudentSubject from './studentLecture';
-import TeacherSubject from './teacherLecture';
+import TeacherLecture from './teacherLecture';
+import TeacherSubject from './teacherSubject';
+import TeacherReport from './teacherReport';
 import StudentContent from './studentContent';
 import StudentReport from './studentReport';
 import StudentRecord from './studentRecord';
@@ -17,6 +19,8 @@ function App() {
 				<Route exact path='/' component={Login}></Route>
 				<Route exact path='/student' component={Student}></Route>
 				<Route exact path='/student-lecture/:id' component={StudentSubject}/>
+				<Route exact path='/teacher-record/:id' component={TeacherLecture}/>
+				<Route exact path='/teacher-report/:lectureId/:studentId' component={TeacherReport}/>
 				<Route exact path='/teacher-lecture/:id' component={TeacherSubject}/>
 				<Route exact path='/student-record/:id' component={StudentRecord}/>
 				<Route exact path='/teacher' component={Teacher}></Route>

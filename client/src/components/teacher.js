@@ -29,7 +29,8 @@ class Teacher extends React.Component{
         })
     }
 
-    handleSubmit() {
+    handleSubmit(e) {
+        e.preventDefault();
         const token = localStorage.authToken;
         const payload = {name: this.state.name};
         axios({
@@ -48,12 +49,7 @@ class Teacher extends React.Component{
     }
 
     subjectPage(id){
-        this.props.history.push({
-            pathname: '/teacher-subject',
-            data: {
-                id: id
-            }
-        });
+        this.props.history.push(`/teacher-lecture/${id}`);
     }
 
     handleChange(e) {
@@ -79,7 +75,7 @@ class Teacher extends React.Component{
                                 {this.state.subjects.map( subject => {
                                     return(
                                         <li onClick={()=>this.subjectPage(subject._id)}>
-                                            <div className='subject inline'>{subject.name}</div> 
+                                            <div className='lecture'>{subject.name}</div> 
                                         </li>
                                     )
                                 })}

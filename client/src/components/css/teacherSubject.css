@@ -1,0 +1,48 @@
+.teacher-heading {
+    width: 1200px;
+}
+
+.left-box, .center-box, .right-box {
+    padding: 15px;
+    background-color: #ffffff;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+
+.left-box{
+    width: 270px;
+    float: left;
+    margin-right: 10px;
+}
+
+.center-box {
+    width: 600px;
+    float: left;
+}
+
+.right-box {
+    width: 310px;
+    float: right;
+}
+
+.center-box li, .left-box li{
+    width: 550px;
+    margin-left: 5px;
+}
+
+.lecture-form{
+    margin: 10px 0 20px 10px;
+    display: block;
+}
+
+textarea {
+    font-family: 'Lato';
+    font-size: 65%;
+    width: 250px;
+    height: 60px;
+    padding: 3px;
+    padding-left: 7px;
+    margin: 7px 0 10px 0;
+    border: 1px solid rgb(213, 213, 213);
+    border-radius: 2px;
+}
