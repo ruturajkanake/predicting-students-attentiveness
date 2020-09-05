@@ -34,10 +34,10 @@ router.get('/student/:id', studentAuth, async(req, res) => {
 
 router.get('/list/students/:id', teacherAuth, async(req, res) => {
     try {
-        const records = await Record.find({lectureId: req.params.id});
+        const records = await Record.find({lectureId: req.params.id}, '-recordX -recordY');
         if(!records) throw 'No Student Records Present';
         for(const record of records){
-            await record.populate('studentId', '-tokens -password').execPopulate();
+            await record.populate('studentId', 'name').execPopulate();
         }
         res.send(records);
     } catch(error){
@@ -49,7 +49,7 @@ router.get('/teacher/:lectureId/:studentId', teacherAuth, async(req, res) => {
     try {
         const record = await Record.findOne({...req.params});
         if(!record) throw 'Record not present';
-        await record.populate('studentId', '-tokens -password').execPopulate();
+        await record.populate('studentId', 'name').execPopulate();
         res.send(record);
     } catch (error){
         res.status(400).send(error)

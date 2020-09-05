@@ -42,11 +42,21 @@ router.get('/teacher', teacherAuth, async(req, res) => {
 
     try {
         const subjects = await Subject.find({teacherId: req.teacher._id});
-        for(const subject of subjects) {
-            await subject.populate('students', '-tokens -password').execPopulate();
-        }
+        // for(const subject of subjects) {
+        //     await subject.populate('students', '-tokens -password').execPopulate();
+        // }
         res.send(subjects);
     } catch (error){
+        res.status(400).send(error);
+    }
+})
+
+router.get('/teacher/:id', teacherAuth, async(req, res) => {
+    try{    
+        const subject = await Subject.findOne({_id: req.params.id, teacherId: req.teacher._id});
+        await subject.populate('students', 'name').execPopulate();
+        res.json(subject);
+    } catch (error) {
         res.status(400).send(error);
     }
 })

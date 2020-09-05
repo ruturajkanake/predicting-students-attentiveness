@@ -25,7 +25,8 @@ router.post('/create/:id', teacherAuth, async(req, res) => {
         }
         const lecture = new Lecture(data);
         await lecture.save();
-        res.send(lecture);
+        const lectures = await Lecture.find({teacherId: req.teacher._id});
+        res.status(200).send(lectures);
     } catch (error){
         res.status(500).send(error);
     }
