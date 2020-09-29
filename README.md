@@ -11,7 +11,7 @@ A MERN Stack project with the help of Face API by Microsoft Cognitive Services w
 # Steps for installation
 
 1. Clone or download the current repository.
-2. Navigate through the directory minor-project in the terminal.
+2. Navigate to the current directory in the terminal.
 3. Run "npm install" and then "cd client && npm install" in the terminal.
 4. Create file dev.env from the root directory and replace the strings.
 5. Create file .env inside client folder and put the subscription key and the Endpoint.
