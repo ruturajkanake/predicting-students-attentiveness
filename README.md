@@ -19,4 +19,4 @@ A MERN Stack project with the help of Face API by Microsoft Cognitive Services w
 # Running the application
 
 1. Run MongoDB in the background or connect to the online server.
-2. Inside the root folder run the command "npm run dev". The web application will get opened in your default browser.
+2. Inside the root folder run the command "npm run dev". The web application will get opened in your default browser or go to http://localhost:3000 in your browser.
